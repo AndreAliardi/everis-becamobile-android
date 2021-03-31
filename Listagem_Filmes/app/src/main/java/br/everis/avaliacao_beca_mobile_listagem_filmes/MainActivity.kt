@@ -2,6 +2,8 @@ package br.everis.avaliacao_beca_mobile_listagem_filmes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.everis.avaliacao_beca_mobile_listagem_filmes.api.MyRetrofit
@@ -28,12 +30,15 @@ class MainActivity : AppCompatActivity() {
 
         call.enqueue(object : Callback<List<Movie>> {
             override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("Response", t.toString())
+                Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
             }
 
             override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
-                TODO("Not yet implemented")
+                val adapter = MovieAdapter(this@MainActivity, response.body()?.toList()!!)
+                recyclerMovies.adapter = adapter
             }
+        })
 
         }
 }
