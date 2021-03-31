@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerMovies = findViewById(R.id.recycler_movies)
         recyclerMovies.layoutManager = LinearLayoutManager(this)
+        getData()
     }
 
     private fun getData(){
@@ -40,5 +41,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        }
+    }
 }
