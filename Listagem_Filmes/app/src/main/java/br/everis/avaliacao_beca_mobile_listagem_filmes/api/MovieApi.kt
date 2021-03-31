@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface MovieApi {
     @GET("day?api_key=876f44a49bfae740fca692cd990c780c")
-    fun getMovieApi(): Call<List<Movie>>
+    fun getMovieApi(): Call<List<Movie?>?>?
 }
