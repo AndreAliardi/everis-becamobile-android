@@ -1,6 +1,7 @@
 package br.everis.avaliacao_beca_mobile_listagem_filmes
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -12,16 +13,20 @@ class MovieAdapter (
     private val context: Context,
     private val movieList: List<Movie>
 ) : RecyclerView.Adapter<MovieViewHolder>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        TODO("Not yet implemented")
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder =
+        MovieViewHolder(
+            LayoutInflater.from(parent.context)
+            .inflate(R.layout.movie_item, parent, false))
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = movieList.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val movie: Movie = movieList[position]
+
+        holder.movie_title.text = movie.title ?: ""
+        holder.movie_releaseDate.text = movie.release_date ?: ""
+        holder.movie_voteAvarage.text = movie.vote_avarage ?: ""
+
     }
 
 }
