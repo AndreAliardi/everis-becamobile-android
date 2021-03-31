@@ -11,7 +11,11 @@ class MyRetrofit {
     }
 
     companion object{
-        private const val BASE_URL = "https://api.themoviedb.org/3/trending/movie/"
+//        private const val BASE_URL = "https://api.themoviedb.org/3/trending/movie/"
+
+//        teste com outra API
+        private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
+
         var myRetrofit: MyRetrofit? = null
 
         @get:Synchronized
