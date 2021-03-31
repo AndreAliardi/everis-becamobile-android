@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.everis.avaliacao_beca_mobile_listagem_filmes.model.Movie
-
+import com.bumptech.glide.Glide
 
 
 class MovieAdapter (
@@ -28,7 +28,7 @@ class MovieAdapter (
         holder.movie_title.text = movie.title ?: ""
         holder.movie_releaseDate.text = movie.release_date ?: ""
         holder.movie_voteAvarage.text = movie.vote_avarage ?: ""
-
+        Glide.with(context).load(movie.poster_path).into(holder.movie_poster)
     }
 
 }
