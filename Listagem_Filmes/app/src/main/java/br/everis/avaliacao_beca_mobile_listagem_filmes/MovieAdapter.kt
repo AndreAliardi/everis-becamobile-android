@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.everis.avaliacao_beca_mobile_listagem_filmes.model.Movie
 
+
+
 class MovieAdapter (
     private val context: Context,
     private val movieList: List<Movie>
