@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.everis.avaliacao_beca_mobile_listagem_filmes.api.MyRetrofit
 import br.everis.avaliacao_beca_mobile_listagem_filmes.model.Movie
+import br.everis.avaliacao_beca_mobile_listagem_filmes.model.MovieInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,15 +28,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData(){
-        val call: Call<List<Movie>> = MyRetrofit.instance?.movieApi()?.getMovieApi() as Call<List<Movie>>
+        val call: Call<List<MovieInfo>> = MyRetrofit.instance?.movieApi()?.getMovieApi() as Call<List<MovieInfo>>
 
-        call.enqueue(object : Callback<List<Movie>> {
-            override fun onFailure(call: Call<List<Movie>>, t: Throwable) {
+        call.enqueue(object : Callback<List<MovieInfo>> {
+            override fun onFailure(call: Call<List<MovieInfo>>, t: Throwable) {
                 Log.d("Response", t.toString())
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<List<Movie>>, response: Response<List<Movie>>) {
+            override fun onResponse(call: Call<List<MovieInfo>>, response: Response<List<MovieInfo>>) {
                 val adapter = MovieAdapter(this@MainActivity, response.body()?.toList()!!)
                 recyclerMovies.adapter = adapter
             }
