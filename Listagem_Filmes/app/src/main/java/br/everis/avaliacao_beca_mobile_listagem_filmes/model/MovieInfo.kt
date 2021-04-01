@@ -1,4 +1,4 @@
-package br.everis.avaliacao_beca_mobile_listagem_filmes.api
+package br.everis.avaliacao_beca_mobile_listagem_filmes.model
 
 import com.google.gson.annotations.SerializedName
 
