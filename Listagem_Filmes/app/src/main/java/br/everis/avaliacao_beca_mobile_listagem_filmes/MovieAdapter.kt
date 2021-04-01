@@ -14,19 +14,20 @@ import com.bumptech.glide.Glide
 
 class MovieAdapter (
     private val context: Context,
-    private val movieList: List<MovieInfo>
+    private val movieList: Movie
 ) : RecyclerView.Adapter<MovieViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder =
         MovieViewHolder(
             LayoutInflater.from(parent.context)
             .inflate(R.layout.movie_item, parent, false))
 
-    override fun getItemCount(): Int = movieList.size
+    override fun getItemCount(): Int = movieList.results.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
 //        val movieInfo: MovieInfo = movieList[position]
-        val movieInfo = movieList.get(position)
+        val movieInfo = movieList.results.get(position)
         holder.movieTitle.text = movieInfo.title
+        holder.movieReleaseDate.text = ("Lançamento: "+ movieInfo.release_date)
 
 //        val movie: Movie = movieList[position]
 //        holder.movie_title.text = movie.title ?: ""
@@ -44,7 +45,10 @@ class MovieAdapter (
 
 class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val movieTitle: TextView = itemView.findViewById(R.id.movie_title)
-//    val movie_page: TextView = itemView.findViewById(R.id.movie_releaseDate)
+    val movieReleaseDate: TextView = itemView.findViewById(R.id.movie_releaseDate)
+
+
+//    val movieTitle: TextView = itemView.findViewById(R.id.movie_title)
 //    val movie_poster: ImageView = itemView.findViewById(R.id.movie_poster)
 //    val movie_title: TextView = itemView.findViewById(R.id.movie_title)
 //    val movie_voteAvarage: TextView = itemView.findViewById(R.id.movie_voteAvarage)

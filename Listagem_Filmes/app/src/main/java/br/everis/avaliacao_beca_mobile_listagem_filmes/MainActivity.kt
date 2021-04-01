@@ -28,16 +28,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getData(){
-        val call: Call<List<MovieInfo>> = MyRetrofit.instance?.movieApi()?.getMovieApi() as Call<List<MovieInfo>>
+        val call: Call<Movie> = MyRetrofit.instance?.movieApi()?.getMovieApi() as Call<Movie>
 
-        call.enqueue(object : Callback<List<MovieInfo>> {
-            override fun onFailure(call: Call<List<MovieInfo>>, t: Throwable) {
+        call.enqueue(object : Callback<Movie> {
+            override fun onFailure(call: Call<Movie>, t: Throwable) {
                 Log.d("Response", t.toString())
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<List<MovieInfo>>, response: Response<List<MovieInfo>>) {
-                val adapter = MovieAdapter(this@MainActivity, response.body()?.toList()!!)
+            override fun onResponse(call: Call<Movie>, response: Response<Movie>) {
+                val adapter = MovieAdapter(this@MainActivity, response.body()!!)
                 recyclerMovies.adapter = adapter
             }
         })
