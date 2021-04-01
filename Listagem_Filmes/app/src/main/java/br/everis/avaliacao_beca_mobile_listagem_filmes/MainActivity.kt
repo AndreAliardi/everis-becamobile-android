@@ -14,7 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ClickMovieDetailListener {
 
     lateinit var recyclerMovies: RecyclerView
 
@@ -41,5 +41,9 @@ class MainActivity : AppCompatActivity() {
                 recyclerMovies.adapter = adapter
             }
         })
+    }
+
+    override fun clickMovieDetail(movieInfo: MovieInfo) {
+        TODO("Not yet implemented")
     }
 }
