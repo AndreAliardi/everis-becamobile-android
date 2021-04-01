@@ -24,8 +24,9 @@ class MovieAdapter (
     override fun getItemCount(): Int = movieList.size
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-//        val movieInfo: MovieInfo = Movie. //movieList[position]
-//        holder.movie_title.text = movieInfo.title ?: ""
+//        val movieInfo: MovieInfo = movieList[position]
+        val movieInfo = movieList.get(position)
+        holder.movieTitle.text = movieInfo.title
 
 //        val movie: Movie = movieList[position]
 //        holder.movie_title.text = movie.title ?: ""
@@ -42,8 +43,8 @@ class MovieAdapter (
 }
 
 class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val movie_title: TextView = itemView.findViewById(R.id.movie_title)
-    val movie_page: TextView = itemView.findViewById(R.id.movie_releaseDate)
+    val movieTitle: TextView = itemView.findViewById(R.id.movie_title)
+//    val movie_page: TextView = itemView.findViewById(R.id.movie_releaseDate)
 //    val movie_poster: ImageView = itemView.findViewById(R.id.movie_poster)
 //    val movie_title: TextView = itemView.findViewById(R.id.movie_title)
 //    val movie_voteAvarage: TextView = itemView.findViewById(R.id.movie_voteAvarage)
