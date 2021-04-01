@@ -1,5 +1,6 @@
 package br.everis.avaliacao_beca_mobile_listagem_filmes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,6 +45,7 @@ class MainActivity : AppCompatActivity(), ClickMovieDetailListener {
     }
 
     override fun clickMovieDetail(movieInfo: MovieInfo) {
-        TODO("Not yet implemented")
+        val intent = Intent(this, MovieDetail::class.java)
+        startActivity(intent)
     }
 }
