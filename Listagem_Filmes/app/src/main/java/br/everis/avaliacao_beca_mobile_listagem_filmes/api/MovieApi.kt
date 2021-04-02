@@ -9,7 +9,4 @@ interface MovieApi {
     @GET("week?api_key=876f44a49bfae740fca692cd990c780c")
     fun getMovieApi(): Call<Movie?>?
 
-//    teste com outra API
-//    @GET("posts")
-//    fun getMovieApi(): Call<List<Movie>>
 }
